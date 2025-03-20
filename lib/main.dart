@@ -12,7 +12,7 @@ void main() {
     ChangeNotifierProvider(
       create: (context) {
         final provider = ArticleProvider();
-        provider.fetchPhotos();  // ✅ Fetch data when app starts
+        provider.fetchPhotos();
         return provider;
       },
       child: const MyApp(),
@@ -39,6 +39,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: _pages[_selectedIndex],
         bottomNavigationBar: SalomonBottomBar(

@@ -23,7 +23,8 @@ class ArticlePage extends StatelessWidget {
               final item = articleProvider.article[index];
 
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
@@ -50,7 +51,8 @@ class ArticlePage extends StatelessWidget {
                               children: [
                                 Text(
                                   item['title'],
-                                  style: const TextStyle(fontWeight: FontWeight.bold),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -70,7 +72,8 @@ class ArticlePage extends StatelessWidget {
                                     return InkWell(
                                       onTap: () {},
                                       child: Padding(
-                                        padding: const EdgeInsets.only(right: 8.0),
+                                        padding:
+                                            const EdgeInsets.only(right: 8.0),
                                         child: Icon(e, size: 16),
                                       ),
                                     );
@@ -107,36 +110,59 @@ class ArticlePage extends StatelessWidget {
 
 class IndividualArticle extends StatelessWidget {
   final int heroTag;
-  
+
   final dynamic item;
 
-  const IndividualArticle({super.key, required this.heroTag, required this.item});
+  const IndividualArticle(
+      {super.key, required this.heroTag, required this.item});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(item['title'])),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Hero(
-                tag: heroTag,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(item['image']),
+      appBar: AppBar(title: null),
+      body: Column(children: [
+        Expanded(
+          child: Center(
+              child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(children: [
+                    Hero(
+                      tag: heroTag,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.network(item['image']),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Text(
+                      item['title'],
+                      style: Theme.of(context).textTheme.titleLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      item['date'],
+                      style: Theme.of(context).textTheme.labelSmall,
+                    )
+                  ]))),
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: ScrollConfiguration(
+              behavior: ScrollBehavior()
+                  .copyWith(overscroll: false, scrollbars: false),
+              child: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
+                child: Text(
+                  item['content'],
+                  style: Theme.of(context).textTheme.bodyLarge,
+                  textAlign: TextAlign.justify,
                 ),
               ),
             ),
           ),
-          Expanded(
-            child: Text(
-              item['content'],
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-          )
-        ],
-      ),
+        ),
+      ]),
     );
   }
 }
