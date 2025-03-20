@@ -16,8 +16,7 @@ class ArticlePage extends StatelessWidget {
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
               logo,
@@ -131,50 +130,53 @@ class IndividualArticle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: null),
-      body: Column(children: [
-        Expanded(
-          child: Center(
-              child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(children: [
-                    Hero(
-                      tag: heroTag,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(item['image']),
-                      ),
+      appBar: AppBar(
+        title: null,
+        backgroundColor: Colors.white,
+      ),
+      body: Container(
+        color: Colors.white,
+        child: ScrollConfiguration(
+          behavior: ScrollBehavior()
+              .copyWith(overscroll: false, scrollbars: false),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Hero(
+                    tag: heroTag,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(item['image']),
                     ),
-                    SizedBox(height: 15),
-                    Text(
-                      item['title'],
-                      style: Theme.of(context).textTheme.titleLarge,
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      item['date'],
-                      style: Theme.of(context).textTheme.labelSmall,
-                    )
-                  ]))),
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: ScrollConfiguration(
-              behavior: ScrollBehavior()
-                  .copyWith(overscroll: false, scrollbars: false),
-              child: SingleChildScrollView(
-                physics: AlwaysScrollableScrollPhysics(),
-                child: Text(
-                  item['content'],
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  textAlign: TextAlign.justify,
-                ),
+                  ),
+                  SizedBox(height: 15),
+                  Text(
+                    item['title'],
+                    style: Theme.of(context).textTheme.titleLarge,
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    item['date'],
+                    style: Theme.of(context).textTheme.labelSmall,
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: 25),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Text(
+                        item['content'],
+                        style: Theme.of(context).textTheme.bodyLarge,
+                        textAlign: TextAlign.justify,
+                      )),
+                ],
               ),
             ),
           ),
-        ),
-      ]),
+        )
+      )
     );
   }
 }
