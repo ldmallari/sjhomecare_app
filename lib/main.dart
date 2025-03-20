@@ -29,6 +29,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
+  static const logo = 'lib/assets/logo.png';
 
   final List<Widget> _pages = [
     const HomeScreen(),
@@ -43,6 +44,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         body: _pages[_selectedIndex],
         bottomNavigationBar: SalomonBottomBar(
+          backgroundColor: Colors.white,
           currentIndex: _selectedIndex,
           unselectedItemColor: const Color(0xff757575),
           onTap: (index) {
@@ -77,7 +79,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const HomePage(title: 'Home Page');
+    return const HomePage(title: 'SJ Home Care', logo: _MyAppState.logo);
   }
 }
 
@@ -85,7 +87,7 @@ class ArticleScreen extends StatelessWidget {
   const ArticleScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const ArticlePage(title: 'Article Page');
+    return const ArticlePage(title: 'Explore Articles', logo: _MyAppState.logo);
   }
 }
 
@@ -93,6 +95,6 @@ class SupportScreen extends StatelessWidget {
   const SupportScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const SupportPage(title: 'Support Page');
+    return const SupportPage(title: 'Support Page', logo: _MyAppState.logo);
   }
 }

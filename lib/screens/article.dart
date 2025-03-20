@@ -3,19 +3,33 @@ import 'package:provider/provider.dart';
 import 'package:sjhomecare_app/utils/api_handler.dart';
 
 class ArticlePage extends StatelessWidget {
-  const ArticlePage({super.key, required this.title});
+  const ArticlePage({super.key, required this.logo, required this.title});
   final String title;
+  final String logo;
+
   @override
   Widget build(BuildContext context) {
     var articleProvider = Provider.of<ArticleProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
+        title: Row(
+          mainAxisAlignment:
+              MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset(
+              logo,
+              width: 35,
+            ),
+            Text(title),
+          ],
+        ),
       ),
       body: Center(
         child: Container(
+          color: Colors.white,
           constraints: const BoxConstraints(),
           child: ListView.builder(
             itemCount: articleProvider.article.length,
@@ -53,8 +67,6 @@ class ArticlePage extends StatelessWidget {
                                   item['title'],
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
