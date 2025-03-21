@@ -54,86 +54,38 @@ class HomePage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 10),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment
+                              .center,
+                          crossAxisAlignment: CrossAxisAlignment
+                              .center,
                           children: [
                             Container(
-                              color: Colors.transparent,
-                              width: MediaQuery.of(context).size.width * 0.2,
-                              height: double.infinity,
+                              width: MediaQuery.of(context).size.width *
+                                  0.2,
+                              height: double
+                                  .infinity,
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment
+                                    .center,
+                                crossAxisAlignment: CrossAxisAlignment
+                                    .start,
                                 children: [
-                                  Text('Calming Thoughts',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 19,
-                                          color: Colors.black)),
-                                  ShaderMask(
-                                    shaderCallback: (Rect bounds) {
-                                      return LinearGradient(
-                                        colors: [
-                                          Colors.green,
-                                          Colors.red
-                                        ],
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                      ).createShader(bounds);
+                                  Text('Calming Thoughts'),
+                                  Text('SJ Home Care Services'),
+                                  SizedBox(
+                                      height: 10),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      print('Coming Soon');
                                     },
-                                    child: Text(
-                                      'SJ Home Care Services',
-                                      style: TextStyle(
-                                          fontSize: 19,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
+                                    child: Text('Join Us'),
                                   ),
-                                  SizedBox(height: 10),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.green,
-                                          Colors.red
-                                        ],
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                      ),
-                                      borderRadius: BorderRadius.circular(
-                                          8),
-                                    ),
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors
-                                            .transparent,
-                                        shadowColor: Colors
-                                            .transparent,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                      onPressed: () {
-                                        print('Gradient Button Clicked');
-                                      },
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            vertical: 5, horizontal: 5),
-                                        child: Text(
-                                          'Join Us',
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors
-                                                  .white),
-                                        ),
-                                      ),
-                                    ),
-                                  )
                                 ],
                               ),
                             ),
-                            SizedBox(width: 20),
+                            SizedBox(
+                                width:
+                                    20),
                             Container(
                               width: MediaQuery.of(context).size.width * 0.45,
                               padding: EdgeInsets.all(16),
@@ -204,6 +156,93 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               )),
+          Container(
+            color: Colors.transparent,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Calming Thoughts'),
+                        Text('SJ Home Care Services'),
+                        ElevatedButton(
+                          onPressed: () {
+                            print('Coming Soon');
+                          },
+                          child: Text('Join Us'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.45,
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                                child: Text('Why Choose Us?',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold))),
+                            Image.asset(logo, height: 24, width: 24),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.check, size: 20),
+                            SizedBox(width: 8),
+                            Expanded(
+                                child: Text(
+                                    'Compassionate & Personalized Support',
+                                    softWrap: true)),
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.chat_bubble_outline, size: 20),
+                            SizedBox(width: 8),
+                            Expanded(
+                                child: Text(
+                                    'Guidance Rooted in Research & Care',
+                                    softWrap: true)),
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.favorite_outline, size: 20),
+                            SizedBox(width: 8),
+                            Expanded(
+                                child: Text('A Community That Cares',
+                                    softWrap: true)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
           Container(
             color: Colors.transparent,
             child: Padding(
