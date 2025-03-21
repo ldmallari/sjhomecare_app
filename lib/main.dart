@@ -15,10 +15,12 @@ void main() {
         provider.fetchPhotos();
         return provider;
       },
-      child: const MyApp(),
+      child: MyApp(key: myAppKey)
     ),
   );
 }
+
+final GlobalKey<_MyAppState> myAppKey = GlobalKey<_MyAppState>();
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -37,6 +39,12 @@ class _MyAppState extends State<MyApp> {
     const SupportScreen(),
   ];
 
+  void updateSelectedIndex(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,9 +56,7 @@ class _MyAppState extends State<MyApp> {
           currentIndex: _selectedIndex,
           unselectedItemColor: const Color(0xff757575),
           onTap: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
+            updateSelectedIndex(index);
           },
           items: [
             SalomonBottomBarItem(
@@ -74,6 +80,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

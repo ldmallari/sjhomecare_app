@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sjhomecare_app/main.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.logo, required this.title});
@@ -7,6 +8,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void changeTab(int index) {
+      myAppKey.currentState?.updateSelectedIndex(index);
+    }
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -115,7 +119,7 @@ class HomePage extends StatelessWidget {
                                         ),
                                       ),
                                       onPressed: () {
-                                        print('Gradient Button Clicked');
+                                        changeTab(2);
                                       },
                                       child: Padding(
                                         padding: EdgeInsets.symmetric(
