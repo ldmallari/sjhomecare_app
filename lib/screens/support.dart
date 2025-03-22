@@ -1,9 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:sjhomecare_app/utils/api_handler.dart';
 
-class SupportPage extends StatelessWidget {
+class SupportPage extends StatefulWidget {
   const SupportPage({super.key, required this.logo, required this.title});
+
   final String title;
   final String logo;
+
+  @override
+  _SupportPageState createState() => _SupportPageState();
+}
+
+class _SupportPageState extends State<SupportPage> {
+  final PostAPI postAPI = PostAPI();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController messageController = TextEditingController();
+  String result = '';
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    messageController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _handleSubmit() async {
+    final String name = nameController.text;
+    final String email = emailController.text;
+    final String message = messageController.text;
+
+    final response = await postAPI.postData(name, email, message);
+
+    if (response != null) {
+      setState(() {
+        result = 'Success! ID: ${response['_id']}\nName: ${response['name']}\nEmail: ${response['email']}';
+        //to be added: snackbar
+      });
+    } else {
+      setState(() {
+        result = 'Error: Failed to send message';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +56,10 @@ class SupportPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
-              logo,
+              widget.logo,
               width: 35,
             ),
-            Text(title, style: Theme.of(context).textTheme.titleMedium),
+            Text(widget.title, style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
       ),
@@ -95,7 +135,50 @@ class SupportPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: ContactForm(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: 375,
+                          child: TextField(
+                            controller: nameController,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(), labelText: 'Name'),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        SizedBox(
+                            width: 375,
+                            child: TextField(
+                              controller: emailController,
+                                decoration: const InputDecoration(
+                                    border: OutlineInputBorder(), labelText: 'Email')
+                          )
+                        ),
+                        SizedBox(height: 20),
+                        SizedBox(
+                          width: 375,
+                          child: TextField(
+                            controller: messageController,
+                            obscureText: false,
+                            minLines: 5,
+                            maxLines: null,
+                            keyboardType: TextInputType.multiline,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Message',
+                              alignLabelWithHint: true,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: _handleSubmit,
+                          child: Text('Submit'),
+                        ),
+                      ],
+                    ),
+                  )
                 ),
               ),
             ],
@@ -142,46 +225,47 @@ class SupportPage extends StatelessWidget {
   }
 }
 
-class ContactForm extends StatelessWidget {
-  const ContactForm({super.key});
+// class ContactForm extends StatelessWidget {
+//   const ContactForm({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const SizedBox(
-            width: 375,
-            child: TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: 'Name'),
-            ),
-          ),
-          const SizedBox(height: 20),
-          const SizedBox(
-              width: 375,
-              child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'Email')
-            )
-          ),
-          const SizedBox(height: 20),
-          const SizedBox(
-            width: 375,
-            child: TextField(
-              obscureText: false,
-              minLines: 5,
-              maxLines: null,
-              keyboardType: TextInputType.multiline,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Message',
-                alignLabelWithHint: true,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return SingleChildScrollView(
+//       child: Column(
+//         children: [
+//           SizedBox(
+//             width: 375,
+//             child: TextField(
+//               decoration: InputDecoration(
+//                   border: OutlineInputBorder(), labelText: 'Name'),
+//             ),
+//           ),
+//           SizedBox(height: 20),
+//           SizedBox(
+//               width: 375,
+//               child: TextField(
+//                 controller: emailController,
+//                   decoration: InputDecoration(
+//                       border: OutlineInputBorder(), labelText: 'Email')
+//             )
+//           ),
+//           SizedBox(height: 20),
+//           SizedBox(
+//             width: 375,
+//             child: TextField(
+//               obscureText: false,
+//               minLines: 5,
+//               maxLines: null,
+//               keyboardType: TextInputType.multiline,
+//               decoration: InputDecoration(
+//                 border: OutlineInputBorder(),
+//                 labelText: 'Message',
+//                 alignLabelWithHint: true,
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

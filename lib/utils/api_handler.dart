@@ -16,3 +16,25 @@ class ArticleProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+class PostAPI {
+  final String apiUrl = 'https://sjhc-api.onrender.com/contacts';
+
+  Future<Map<String, dynamic>?> postData(String name, String email, String message) async {
+    try {
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {'Content-Type': 'application/json; charset=UTF-8'},
+        body: jsonEncode({'name': name, 'email': email, 'message': message}),
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return jsonDecode(response.body);
+      } else {
+        throw Exception('Failed to post data');
+      }
+    } catch (e) {
+      return null;
+    }
+  }
+}
