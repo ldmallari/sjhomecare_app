@@ -1,14 +1,14 @@
 # SJHomeCare App  
 
-A Flutter-based mobile application designed to provide essential home care services. It includes sections for Home, Articles, and Support, offering users a smooth experience for accessing healthcare resources and assistance.  
+A Flutter-based mobile application designed to provide essential home care services. It includes screens for Home, Articles, and Support, offering users a smooth experience for accessing healthcare resources and assistance.  
 
 ## Features  
 
 - **Home Screen** - Provides an overview of services and quick access to essential functionalities.  
-- **Article Section** - Fetches articles from an external API (`https://sjhc-api.onrender.com/articles`) to provide informative healthcare content.  
-- **Support System** - Users can submit a contact form, which posts data to an API for customer assistance.  
+- **Article Screen** - Fetches articles from an external API (`https://sjhc-api.onrender.com/articles`) to provide informative healthcare content.  
+- **Support Screen** - Users can submit a contact form, which posts data to an API for customer assistance.  
 - **State Management** - Uses `Provider` for managing state in the `ArticleProvider` class.  
-- **Bottom Navigation Bar** - Implements `SalomonBottomBar` for smooth navigation between Home, Articles, and Support sections.  
+- **Bottom Navigation Bar** - Implements `SalomonBottomBar` for smooth navigation between Home, Articles, and Support screens.  
 
 ## Tech Stack  
 
