@@ -23,5 +23,4 @@ A Flutter-based mobile application designed to provide essential home care servi
 - **Support API:** Accepts contact form submissions for customer support
 
 ### Web Version  
-You can access the web version of the app here:  
-🌐 [SJHomeCare Web](https://sjhomecare.netlify.app/)  
+You can access the web version of the app here: [SJHomeCare Web](https://sjhomecare.netlify.app/)  
