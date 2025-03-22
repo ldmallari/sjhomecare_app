@@ -6,7 +6,6 @@ import 'package:sjhomecare_app/screens/home.dart';
 import 'package:sjhomecare_app/screens/support.dart';
 import 'package:sjhomecare_app/utils/api_handler.dart';
 
-
 void main() {
   runApp(
     ChangeNotifierProvider(
