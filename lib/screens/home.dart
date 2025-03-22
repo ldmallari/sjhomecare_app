@@ -424,13 +424,13 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2), // Increased horizontal padding for spacing
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
             height: 30,
             decoration: BoxDecoration(
               color: Colors.green[200],
               borderRadius: BorderRadius.circular(15.0),
             ),
-            child: IntrinsicWidth( // Automatically adjusts width to fit text
+            child: IntrinsicWidth(
               child: Center(
                 child: Text(
                   tag,
