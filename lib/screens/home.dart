@@ -72,8 +72,8 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  'Calming Thoughts',
+                                Text(    
+                                  'ThriveWell',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 19,
@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
                                     ).createShader(bounds);
                                   },
                                   child: Text(
-                                    'SJ Home Care Services',
+                                    'Empowering Mental Well-Being',
                                     style: TextStyle(
                                       fontSize: 19,
                                       fontWeight: FontWeight.bold,
@@ -118,8 +118,8 @@ class HomePage extends StatelessWidget {
                                     onPressed: () {
                                       changeTab(2);
                                     },
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
                                       child: Text(
                                         'Join Us',
                                         style: TextStyle(fontSize: 12, color: Colors.white),
@@ -162,14 +162,14 @@ class HomePage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      Icons.check,
+                                      Icons.psychology,
                                       color: Colors.green[700],
                                       size: 20,
                                     ),
                                     SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
-                                        'Compassionate & Personalized Support',
+                                        'Encouraging Mental Resilience',
                                         softWrap: true,
                                       ),
                                     ),
@@ -180,14 +180,14 @@ class HomePage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      Icons.chat_bubble_outline,
+                                      Icons.lightbulb,
                                       color: Colors.orange[700],
                                       size: 20,
                                     ),
                                     SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
-                                        'Guidance Rooted in Research & Care',
+                                        'Raising Awareness & Breaking Stigma',
                                         softWrap: true,
                                       ),
                                     ),
@@ -198,14 +198,14 @@ class HomePage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Icon(
-                                      Icons.favorite_outline,
+                                      Icons.support,
                                       color: Colors.red[700],
                                       size: 20,
                                     ),
                                     SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
-                                        'A Community That Cares',
+                                        'Connecting People with Support Systems',
                                         softWrap: true,
                                       ),
                                     ),
@@ -230,9 +230,9 @@ class HomePage extends StatelessWidget {
                   runSpacing: 25,
                   alignment: WrapAlignment.center,
                   children: [
-                    _buildStatBox('60+', 'Lives Transformed'),
-                    _buildStatBox('20+', 'Expert Caregivers'),
-                    _buildStatBox('4+', 'Years of Service'),
+                    _buildStatBox('100+', 'Individuals Empowered'),
+                    _buildStatBox('20+', 'Educational Resources'),
+                    _buildStatBox('2+', 'Years of Advocacy'),
                   ],
                 ),
               ),
@@ -253,8 +253,8 @@ class HomePage extends StatelessWidget {
                       ),
                       child: _sectionBox(
                         'Who We Are',
-                        'More Than Just Care – A Community of Healing',
-                        'At Calming Thoughts SJ Home Care Services, we believe in creating a supportive space where individuals feel safe, valued, and empowered. Our approach combines expertise, compassion, and a deep commitment to mental and emotional well-being.',
+                        'Breaking the Stigma, Promoting Wellness',
+                        'At ThriveWell, our mission is to educate, support, and empower individuals dealing with mental health challenges. We provide resources, community support, and guidance to help navigate mental well-being.',
                       ),
                     )
                   ],
@@ -277,7 +277,7 @@ class HomePage extends StatelessWidget {
                 ],
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('lib/assets/give.jpg'),
+                  image: AssetImage('lib/assets/wellness.jpg'),
                 ),
               ),
             ),
@@ -299,9 +299,9 @@ class HomePage extends StatelessWidget {
                       child: Column(
                         children: [
                           _sectionBox(
-                            'Our Specialist',
-                            'Meet Our Experts',
-                            'Our team of highly skilled professionals is dedicated to providing compassionate and expert care, ensuring that every individual receives the best treatment possible.',
+                            'Support & Resources',
+                            'Your Mental Wellness Partner',
+                            'ThriveWell offers valuable insights, self-help strategies, and a supportive community to help you navigate mental health challenges. We believe that education and awareness are key to fostering resilience and well-being.',
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.6,
@@ -319,7 +319,7 @@ class HomePage extends StatelessWidget {
                               ],
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage('lib/assets/experts.jpg'),
+                                image: AssetImage('lib/assets/peace.jpg'),
                               ),
                             ),
                           ),
@@ -333,19 +333,19 @@ class HomePage extends StatelessWidget {
                                 alignment: WrapAlignment.center,
                                 children: [
                                   _featBox(
-                                    Icons.check,
-                                    'Compassion',
-                                    'Every individual deserves to be heard, supported, and cared for.',
+                                    Icons.volunteer_activism,
+                                    'Empathy',
+                                    'We listen, understand, and support those facing mental health challenges.',
                                   ),
                                   _featBox(
-                                    Icons.info_outline,
-                                    'Integrity',
-                                    'We uphold honesty, trust, and transparency in all that we do.',
+                                    Icons.lightbulb_outline,
+                                    'Awareness',
+                                    'We educate and break the stigma around mental health issues.',
                                   ),
                                   _featBox(
-                                    Icons.star_border_outlined,
-                                    'Excellence',
-                                    'We strive to provide the highest level of care and support.',
+                                    Icons.handshake,
+                                    'Support',
+                                    'We foster a safe and uplifting community for mental well-being.',
                                   ),
                                 ],
                               ),
@@ -392,7 +392,7 @@ class HomePage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       height: 200,
-      width: 160,
+      width: 165,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -424,21 +424,22 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2), // Increased horizontal padding for spacing
             height: 30,
-            width: 120,
             decoration: BoxDecoration(
               color: Colors.green[200],
               borderRadius: BorderRadius.circular(15.0),
             ),
-            child: Center(
-              child: Text(
-                tag,
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.green[700],
+            child: IntrinsicWidth( // Automatically adjusts width to fit text
+              child: Center(
+                child: Text(
+                  tag,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.green[700],
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
           ),

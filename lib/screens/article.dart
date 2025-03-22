@@ -12,8 +12,9 @@ class ArticlePage extends StatelessWidget {
     var articleProvider = Provider.of<ArticleProvider>(context);
 
     return Scaffold(
+      backgroundColor: Color(0xFFF8F8F8),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -22,13 +23,12 @@ class ArticlePage extends StatelessWidget {
               logo,
               width: 35,
             ),
-            Text(title),
+            Text(title, style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
       ),
       body: Center(
         child: Container(
-          color: Colors.white,
           constraints: const BoxConstraints(),
           child: ListView.builder(
             itemCount: articleProvider.article.length,

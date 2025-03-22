@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const HomePage(title: 'SJ Home Care', logo: _MyAppState.logo);
+    return const HomePage(title: 'Welcome', logo: _MyAppState.logo);
   }
 }
 
@@ -101,6 +101,6 @@ class SupportScreen extends StatelessWidget {
   const SupportScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const SupportPage(title: 'Support Page', logo: _MyAppState.logo);
+    return const SupportPage(title: 'Get Support', logo: _MyAppState.logo);
   }
 }
