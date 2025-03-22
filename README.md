@@ -1,16 +1,27 @@
-# sjhomecare_app
+# SJHomeCare App  
 
-A new Flutter project.
+A Flutter-based mobile application designed to provide essential home care services. It includes sections for Home, Articles, and Support, offering users a smooth experience for accessing healthcare resources and assistance.  
 
-## Getting Started
+## Features  
 
-This project is a starting point for a Flutter application.
+- **Home Screen** - Provides an overview of services and quick access to essential functionalities.  
+- **Article Section** - Fetches articles from an external API (`https://sjhc-api.onrender.com/articles`) to provide informative healthcare content.  
+- **Support System** - Users can submit a contact form, which posts data to an API for customer assistance.  
+- **State Management** - Uses `Provider` for managing state in the `ArticleProvider` class.  
+- **Bottom Navigation Bar** - Implements `SalomonBottomBar` for smooth navigation between Home, Articles, and Support sections.  
 
-A few resources to get you started if this is your first Flutter project:
+## Tech Stack  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### **Frontend:**  
+- **Framework:** Flutter  
+- **Language:** Dart  
+- **State Management:** Provider  
+- **UI Components:** Material UI, SalomonBottomBar  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### **Backend (APIs):**  
+- **Articles API:** Fetches healthcare-related articles from `https://sjhc-api.onrender.com/articles`  
+- **Support API:** Accepts contact form submissions for customer support
+
+### Web Version  
+You can access the web version of the app here:  
+🌐 [SJHomeCare Web](https://sjhomecare.netlify.app/)  
