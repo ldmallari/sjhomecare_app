@@ -35,7 +35,7 @@ class ArticlePage extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final item = articleProvider.article[index];
 
-              return Padding(
+              return Column(children: [SizedBox(height: 12), Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Material(
@@ -110,7 +110,7 @@ class ArticlePage extends StatelessWidget {
                     ),
                   ),
                 ),
-              );
+              )]);
             },
           ),
         ),
