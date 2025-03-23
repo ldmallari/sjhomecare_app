@@ -16,7 +16,7 @@ A Flutter-based mobile application designed to provide essential home care servi
 - **Framework:** Flutter  
 - **Language:** Dart  
 - **State Management:** Provider  
-- **UI Components:** Material UI, SalomonBottomBar  
+- **UI Components:** Material UI, SalomonBottomBar, IconSnackBar 
 
 ### **Backend (APIs):**  
 - **Articles API:** Fetches healthcare-related articles from `https://sjhc-api.onrender.com/articles`  
