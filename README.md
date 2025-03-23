@@ -1,4 +1,4 @@
-# SJHomeCare App  
+# ThriveWell App
 
 A Flutter-based mobile application designed to provide essential home care services. It includes screens for Home, Articles, and Support, offering users a smooth experience for accessing healthcare resources and assistance.  
 
