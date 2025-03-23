@@ -130,12 +130,13 @@ class IndividualArticle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF8F8F8),
       appBar: AppBar(
         title: null,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
       ),
       body: Container(
-        color: Colors.white,
+        color: Colors.transparent,
         child: ScrollConfiguration(
           behavior: ScrollBehavior()
               .copyWith(overscroll: false, scrollbars: false),

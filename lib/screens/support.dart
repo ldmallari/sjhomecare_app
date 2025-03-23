@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sjhomecare_app/utils/api_handler.dart';
+import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
 
 class SupportPage extends StatefulWidget {
   const SupportPage({super.key, required this.logo, required this.title});
@@ -16,7 +17,6 @@ class _SupportPageState extends State<SupportPage> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
-  String result = '';
 
   @override
   void dispose() {
@@ -35,12 +35,18 @@ class _SupportPageState extends State<SupportPage> {
 
     if (response != null) {
       setState(() {
-        result = 'Success! ID: ${response['_id']}\nName: ${response['name']}\nEmail: ${response['email']}';
-        //to be added: snackbar
+        IconSnackBar.show(
+          context, 
+          snackBarType: SnackBarType.success, 
+          label: 'Message sent successfully'
+        );
+        nameController.clear();
+        emailController.clear();
+        messageController.clear();
       });
     } else {
       setState(() {
-        result = 'Error: Failed to send message';
+        IconSnackBar.show(context, snackBarType: SnackBarType.fail, label: 'Failed to send message');
       });
     }
   }
@@ -69,6 +75,28 @@ class _SupportPageState extends State<SupportPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Center(
+                child: Container(
+                  width: 450,
+                  height: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(15.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.4),
+                        spreadRadius: 0.3,
+                        blurRadius: 25,
+                        offset: Offset(5, 5),
+                      )
+                    ],
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('lib/assets/bg.jpg'),
+                    ),
+                  ),
+                )
+              ),
               Center(
                 child: Container(
                   width: 450,
@@ -224,48 +252,3 @@ class _SupportPageState extends State<SupportPage> {
     );
   }
 }
-
-// class ContactForm extends StatelessWidget {
-//   const ContactForm({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//       child: Column(
-//         children: [
-//           SizedBox(
-//             width: 375,
-//             child: TextField(
-//               decoration: InputDecoration(
-//                   border: OutlineInputBorder(), labelText: 'Name'),
-//             ),
-//           ),
-//           SizedBox(height: 20),
-//           SizedBox(
-//               width: 375,
-//               child: TextField(
-//                 controller: emailController,
-//                   decoration: InputDecoration(
-//                       border: OutlineInputBorder(), labelText: 'Email')
-//             )
-//           ),
-//           SizedBox(height: 20),
-//           SizedBox(
-//             width: 375,
-//             child: TextField(
-//               obscureText: false,
-//               minLines: 5,
-//               maxLines: null,
-//               keyboardType: TextInputType.multiline,
-//               decoration: InputDecoration(
-//                 border: OutlineInputBorder(),
-//                 labelText: 'Message',
-//                 alignLabelWithHint: true,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
