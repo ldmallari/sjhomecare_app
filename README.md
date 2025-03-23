@@ -22,5 +22,3 @@ A Flutter-based mobile application designed to provide essential home care servi
 - **Articles API:** Fetches healthcare-related articles from `https://sjhc-api.onrender.com/articles`  
 - **Support API:** Accepts contact form submissions for customer support
 
-### Web Version  
-You can access the web version of the app here: [SJHomeCare Web](https://sjhomecare.netlify.app/)  
